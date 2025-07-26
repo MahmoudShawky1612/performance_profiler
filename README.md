@@ -150,12 +150,6 @@ Customizable overlay for displaying performance metrics.
 
 For a complete implementation example with multiple screens and tracked widgets, see the `example/` directory in the package repository.
 
-## Requirements
-
-- Flutter SDK: >=2.17.0
-- Dart: >=2.17.0
-- Provider package: ^6.0.0
-
 ## Contributing
 
 Contributions are welcome! Please read our contributing guidelines and submit pull requests to our GitHub repository.
