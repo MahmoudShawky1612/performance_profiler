@@ -1,24 +1,38 @@
 # Performance Profiler
 
-A Flutter package for profiling app performance, including screen load time, FPS, and widget rebuild tracking. It provides a customizable overlay to display performance metrics in real-time.
+A comprehensive Flutter package for real-time performance monitoring and analysis. Track screen load times, frame rates, and widget rebuild metrics with an intuitive overlay interface.
 
 ## Features
-- Track screen load times.
-- Monitor FPS (Frames Per Second).
-- Track widget rebuilds per screen.
- - Customizable overlay with hide/show functionality.
+
+- **Screen Load Time Tracking** - Monitor navigation and initialization performance
+- **FPS Monitoring** - Real-time frames per second measurement
+- **Widget Rebuild Analysis** - Track rebuild frequency per screen and component
+- **Customizable Overlay** - Toggle visibility and customize display options
+- **Developer-Friendly** - Simple integration with minimal code changes
 
 ## Installation
-Add this to your `pubspec.yaml`:
-yaml
+
+Add the dependency to your `pubspec.yaml`:
+
+```yaml
 dependencies:
   performance_profiler: ^1.0.0
+  provider: ^6.0.0  # Required for state management
+```
 
-Run:
+Install the package:
+
+```bash
 flutter pub get
+```
 
-## Usage
-1. Wrap your app with PerformanceAnalyzer:
+## Quick Start
+
+### 1. Initialize the Performance Analyzer
+
+Wrap your application with the `PerformanceAnalyzer` provider:
+
+```dart
 import 'package:flutter/material.dart';
 import 'package:performance_profiler/performance_profiler.dart';
 import 'package:provider/provider.dart';
@@ -31,10 +45,16 @@ void main() {
     ),
   );
 }
+```
 
-2.Set the current screen name in each screen's State class:
+### 2. Configure Screen Tracking
+
+Set the current screen name in each screen's `initState` method:
+
+```dart
 class MyScreen extends StatefulWidget {
   const MyScreen({super.key});
+
   @override
   MyScreenState createState() => MyScreenState();
 }
@@ -44,7 +64,8 @@ class MyScreenState extends State<MyScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<PerformanceAnalyzer>(context, listen: false).setCurrentScreen('MyScreen');
+      Provider.of<PerformanceAnalyzer>(context, listen: false)
+          .setCurrentScreen('MyScreen');
     });
   }
 
@@ -55,7 +76,9 @@ class MyScreenState extends State<MyScreen> {
         children: [
           TrackedWidget(
             name: 'MyScreenBody',
-            child: const Center(child: Text('Hello, World!')),
+            child: const Center(
+              child: Text('Hello, World!'),
+            ),
           ),
           const ProfilerOverlay(),
         ],
@@ -63,25 +86,84 @@ class MyScreenState extends State<MyScreen> {
     );
   }
 }
+```
 
-3. Use TrackedWidget to monitor specific widgets:
+### 3. Track Specific Widgets
+
+Wrap widgets you want to monitor with `TrackedWidget`:
+
+```dart
 TrackedWidget(
-  name: 'MyWidget',
-  child: Text('Some content'),
+  name: 'CustomButton',
+  child: ElevatedButton(
+    onPressed: () {},
+    child: const Text('Click Me'),
+  ),
 )
+```
 
-4.Add ProfilerOverlay to display performance metrics:
-    .The overlay shows the current screen name, load time, FPS, and widget rebuild counts.
-    .It can be hidden/shown using the close button.
+### 4. Display Performance Metrics
 
+Add the `ProfilerOverlay` to your screen stack to view real-time metrics:
 
+- Current screen name
+- Screen load time
+- FPS (Frames Per Second)
+- Widget rebuild counts
+- Toggle visibility with the close/show button
+
+## API Reference
+
+### PerformanceAnalyzer
+
+Main class for managing performance tracking.
+
+**Methods:**
+- `setCurrentScreen(String screenName)` - Set the active screen for tracking
+- `trackWidget(String widgetName)` - Register a widget for rebuild monitoring
+
+### TrackedWidget
+
+Widget wrapper for monitoring rebuild performance.
+
+**Properties:**
+- `name` (String) - Unique identifier for the widget
+- `child` (Widget) - The widget to be tracked
+
+### ProfilerOverlay
+
+Customizable overlay for displaying performance metrics.
+
+**Features:**
+- Real-time metric updates
+- Hide/show toggle functionality
+- Minimal UI footprint
+
+## Best Practices
+
+- Use descriptive and unique screen names for accurate tracking
+- Place `ProfilerOverlay` at the top level of your widget stack
+- Limit `TrackedWidget` usage to critical components to avoid performance overhead
+- Remove or disable profiling in production builds
 
 ## Example
-Check the example/ folder for a complete example with multiple screens.
 
-## Notes
-Ensure provider is added to your pubspec.yaml.
- Use unique screen names for accurate tracking.
+For a complete implementation example with multiple screens and tracked widgets, see the `example/` directory in the package repository.
+
+## Requirements
+
+- Flutter SDK: >=2.17.0
+- Dart: >=2.17.0
+- Provider package: ^6.0.0
+
+## Contributing
+
+Contributions are welcome! Please read our contributing guidelines and submit pull requests to our GitHub repository.
 
 ## License
-MIT License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Note:** This package is designed for development and debugging purposes. Consider removing or disabling performance tracking in production builds to optimize app performance.
