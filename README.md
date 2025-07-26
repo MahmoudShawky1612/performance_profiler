@@ -6,19 +6,18 @@ A Flutter package for profiling app performance, including screen load time, FPS
 - Track screen load times.
 - Monitor FPS (Frames Per Second).
 - Track widget rebuilds per screen.
-- Save performance data to a JSON file.
-- Customizable overlay with hide/show functionality.
+ - Customizable overlay with hide/show functionality.
 
 ## Installation
 Add this to your `pubspec.yaml`:
-```yaml
+yaml
 dependencies:
   performance_profiler: ^1.0.0
 
 Run:
 flutter pub get
 
-Usage
+## Usage
 1. Wrap your app with PerformanceAnalyzer:
 import 'package:flutter/material.dart';
 import 'package:performance_profiler/performance_profiler.dart';
@@ -73,17 +72,16 @@ TrackedWidget(
 
 4.Add ProfilerOverlay to display performance metrics:
     .The overlay shows the current screen name, load time, FPS, and widget rebuild counts.
-
     .It can be hidden/shown using the close button.
 
 
 
-Example
+## Example
 Check the example/ folder for a complete example with multiple screens.
 
-Notes
+## Notes
 Ensure provider is added to your pubspec.yaml.
  Use unique screen names for accurate tracking.
 
-License
+## License
 MIT License
