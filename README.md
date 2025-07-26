@@ -146,6 +146,15 @@ Customizable overlay for displaying performance metrics.
 - Limit `TrackedWidget` usage to critical components to avoid performance overhead
 - Remove or disable profiling in production builds
 
+## ScreenShots
+
+<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-26 at 22 54 58" src="https://github.com/user-attachments/assets/642454b5-3aef-4ac8-97b2-97b5e507f423" />
+
+<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-26 at 22 55 11" src="https://github.com/user-attachments/assets/b5694b98-3ff0-4825-9e21-d32038a31fef" />
+
+<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-26 at 22 55 23" src="https://github.com/user-attachments/assets/3a099827-95f1-469c-844a-e9f24dfd99cb" />
+
+
 ## Example
 
 For a complete implementation example with multiple screens and tracked widgets, see the `example/` directory in the package repository.
