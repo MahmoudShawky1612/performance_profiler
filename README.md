@@ -148,11 +148,18 @@ Customizable overlay for displaying performance metrics.
 
 ## ScreenShots
 
-<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-26 at 22 54 58" src="https://github.com/user-attachments/assets/642454b5-3aef-4ac8-97b2-97b5e507f423" />
 
-<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-26 at 22 55 11" src="https://github.com/user-attachments/assets/b5694b98-3ff0-4825-9e21-d32038a31fef" />
+<img width="1290" height="2600" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-28 at 15 57 05" src="https://github.com/user-attachments/assets/edcd3a43-44d5-4fc1-8ffc-138abf2913d8" />
 
-<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-26 at 23 09 00" src="https://github.com/user-attachments/assets/50fc15a0-ecec-4256-ba64-7ea473d7ad21" />
+
+
+<img width="1290" height="2600" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-28 at 15 57 26" src="https://github.com/user-attachments/assets/0de3af58-68e9-4725-9752-da5dbe4de243" />
+
+
+
+<img width="1290" height="2600" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-28 at 15 57 35" src="https://github.com/user-attachments/assets/62606e45-5b36-462f-a882-c9115fe1f373" />
+
+
 
 ## Example
 
