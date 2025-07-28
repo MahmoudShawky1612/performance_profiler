@@ -1,6 +1,6 @@
 name: performance_profiler_example
 description: Example app for performance_profiler package.
-version: 1.0.2
+version: 1.0.2+
 publish_to: none
 
 environment:
@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  performance_profiler: ^1.0.0
+  performance_profiler:
+    path: ../
   provider: ^6.0.0
 
 dev_dependencies:

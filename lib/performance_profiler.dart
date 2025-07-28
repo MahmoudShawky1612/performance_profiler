@@ -133,6 +133,31 @@ class PerformanceAnalyzer extends ChangeNotifier with WidgetsBindingObserver {
   }
 }
 
+class ProfilerNavigatorObserver extends NavigatorObserver {
+  final PerformanceAnalyzer analyzer;
+
+  ProfilerNavigatorObserver(this.analyzer);
+
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    _updateScreen(route);
+    super.didPush(route, previousRoute);
+  }
+
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    if (previousRoute != null) {
+      _updateScreen(previousRoute);
+    }
+    super.didPop(route, previousRoute);
+  }
+
+  void _updateScreen(Route<dynamic> route) {
+    final screenName = route.settings.name ?? route.runtimeType.toString();
+    analyzer.setCurrentScreen(screenName);
+  }
+}
+
 // Widget to track rebuilds
 class TrackedWidget extends StatelessWidget {
   final String name;

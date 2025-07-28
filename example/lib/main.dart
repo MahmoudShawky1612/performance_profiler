@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final analyzer = Provider.of<PerformanceAnalyzer>(context, listen: false);
     return MaterialApp(
       title: 'Performance Profiler Example',
       theme: ThemeData(primarySwatch: Colors.blue),
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/second': (context) => const SecondScreen(),
         '/third': (context) => const ThirdScreen(),
       },
+      navigatorObservers: [ProfilerNavigatorObserver(analyzer)],
     );
   }
 }
@@ -40,10 +42,6 @@ class MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<PerformanceAnalyzer>(context, listen: false)
-          .setCurrentScreen('MainScreen');
-    });
   }
 
   @override
@@ -90,10 +88,6 @@ class SecondScreenState extends State<SecondScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<PerformanceAnalyzer>(context, listen: false)
-          .setCurrentScreen('SecondScreen');
-    });
   }
 
   @override
@@ -158,10 +152,6 @@ class ThirdScreenState extends State<ThirdScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<PerformanceAnalyzer>(context, listen: false)
-          .setCurrentScreen('ThirdScreen');
-    });
   }
 
   @override
@@ -177,7 +167,12 @@ class ThirdScreenState extends State<ThirdScreen> {
               children: List.generate(30, (index) {
                 return TrackedWidget(
                   name: 'GridItem_$index',
-                  child: Card(child: Center(child: Text('Item $index'))),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, index % 2 == 0 ? '/second' : '/third');
+                      },
+                      child: Card(child: Center(child: Text('Item $index')))),
                 );
               }),
             ),

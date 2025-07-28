@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2
+## 1.0.2+
 
 - Initial release.
 - Features:
@@ -10,3 +10,4 @@
     - Customizable overlay with hide/show functionality.
     - Updating documentation and examples.
     - Modifying test cases to ensure reliability.
+    - Modifying screen name while navigating.
