@@ -157,7 +157,7 @@ Customizable overlay for displaying performance metrics.
 
 
 
-<img width="1290" height="2796" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-28 at 15 57 35" src="https://github.com/user-attachments/assets/62606e45-5b36-462f-a882-c9115fe1f373" />
+<img width="1290" height="2600" alt="Simulator Screenshot - iPhone 16 Plus - 2025-07-28 at 15 57 35" src="https://github.com/user-attachments/assets/62606e45-5b36-462f-a882-c9115fe1f373" />
 
 
 
